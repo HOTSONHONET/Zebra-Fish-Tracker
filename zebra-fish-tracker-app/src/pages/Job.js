@@ -3,7 +3,7 @@ import FishAttribute from '../components/FishAttribute'
 import FishIds from '../components/FishIds'
 import FishPath from '../components/FishPath'
 import Navbar from '../components/Navbar'
-import Video from '../components/Video'
+import VideoPlayer from '../components/VideoPlayer'
 
 export default function Job() {
     return (
@@ -12,7 +12,7 @@ export default function Job() {
             <div className='container-fluid mt-4'>
                 <div className="row">
                     <div className="col-8" style={{ height: "400px" }}>
-                        <Video />
+                        <VideoPlayer />
                     </div>
                     <div className="col-4" style={{ height: "400px" }}>
                         <FishIds />
