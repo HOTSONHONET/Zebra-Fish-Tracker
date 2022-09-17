@@ -1,7 +1,10 @@
-from src import start_service
+from src.factory import start_service
+from warnings import filterwarnings
 
-app = start_service()
 
+# For filtering out all warnings we will get when starting the application
+filterwarnings("ignore")
 
 if __name__ == "__main__":
+    app = start_service()
     app.run(port=5000, debug=1)

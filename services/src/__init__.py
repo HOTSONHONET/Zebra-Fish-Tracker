@@ -1,18 +1,18 @@
-from warnings import filterwarnings
-from flask import Flask
-from flask_cors import CORS
+from celery import Celery
+from src.config import *
 
-# For filtering out all warnings we will get when starting the application
-filterwarnings("ignore")
 
 # A display message when the app starts
 print("[INFO] Keep Calm n Enjoy the drill...")
 
 
-# Main function to start the application
-def start_service():
-    app = Flask(__name__, instance_relative_config=False)
-    CORS(app)  # To allow Cross Platfrom data sharing
-    with app.app_context():
-        from . import routes
-        return app
+# Function to create celery
+def make_celery(app_name=__name__):
+    return Celery(
+        app_name,
+        broker=BROKER_URL,
+        backend=BACKEND_URL
+    )
+
+
+celery = make_celery()

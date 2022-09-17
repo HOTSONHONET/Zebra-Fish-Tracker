@@ -1,0 +1,3 @@
+[submodule "services/src/Yolov5_DeepSort_Pytorch"]
+	path = services/src/Yolov5_DeepSort_Pytorch
+	url = https://github.com/HOTSONHONET/Yolov5_DeepSort_Pytorch

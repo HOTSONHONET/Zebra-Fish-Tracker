@@ -61,7 +61,7 @@ const render2DGraph = (fish_name) => {
 
 export default function PathGraph(props) {
     return (
-        <div className="container" style={{ borderStyle: "dashed", height: "400px" }}>
+        <div className="container" style={{ borderStyle: "dashed", height: "450px" }}>
             {
                 props.dimension === '2D' ? render2DGraph(props.fish) : render3DGraph(props.fish)
             }

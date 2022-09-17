@@ -12,12 +12,12 @@ const attributeNames = {
     "Total time in the lower zone(lower half of tank)": 0.0
 }
 
-export default function FishAttribute() {
+export default function FishAttribute(props) {
     return (
         <div>
-            <div className="card mb-3" style={{ width: "100%", height: "500px" }}>
+            <div className="card mb-3 mt-0" style={{ width: "100%", height: "450px" }}>
                 <div className="card-title p-2 text-center">
-                    <h3>Fish Attributes</h3>
+                    <h3>Attributes</h3>
                 </div>
                 <div className="card-body text-center">
                     <table className="table table-sm table-bordered table-hover table-secondary vw-10">

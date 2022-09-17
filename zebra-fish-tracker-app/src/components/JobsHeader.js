@@ -15,7 +15,7 @@ export default function JobsHeader(props) {
                         </div>
                         <div className="col">
                             <div className="card-body text-center fw-bolder">
-                                <h5 className="card-title">20</h5>
+                                <h5 className="card-title">{props.NumJobs}</h5>
                                 <p className="card-text">No. of Jobs</p>
                             </div>
                         </div>
@@ -31,7 +31,7 @@ export default function JobsHeader(props) {
                         </div>
                         <div className="col">
                             <div className="card-body text-center fw-bolder">
-                                <h5 className="card-title">2</h5>
+                                <h5 className="card-title">{props.NumCompletedJobs}</h5>
                                 <p className="card-text">Completed</p>
                             </div>
                         </div>
@@ -47,7 +47,7 @@ export default function JobsHeader(props) {
                         </div>
                         <div className="col">
                             <div className="card-body text-center fw-bolder">
-                                <h5 className="card-title">18</h5>
+                                <h5 className="card-title">{props.NumPendingJobs}</h5>
                                 <p className="card-text">Processing</p>
                             </div>
                         </div>
