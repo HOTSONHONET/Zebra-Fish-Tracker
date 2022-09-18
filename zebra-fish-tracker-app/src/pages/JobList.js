@@ -6,40 +6,49 @@ import UploadJob from '../components/UploadJob'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import axios from 'axios';
+import Spinner from '../components/Spinner'
 
 export default function JobList() {
-    const [NumJobs, updateNumJobs] = useState(0);
-    const [NumCompletedJobs, updateNumCompletedJobs] = useState(0);
-    const [NumPendingJobs, updateNumPendingJobs] = useState(0);
+    const [NumJobs, updateNumJobs] = useState(null);
+    const [NumCompletedJobs, updateNumCompletedJobs] = useState(null);
+    const [NumPendingJobs, updateNumPendingJobs] = useState(null);
     const [JobsData, updateJobsData] = useState([]);
     useEffect(() => {
-        axios.get("http://127.0.0.1:5000/jobs").then((res) => {
-            // console.log(res.data)
-            updateJobsData(res.data)
-            let numJobs = res.data.length, completed = 0, pending = 0;
-            for (let i = 0; i < numJobs; ++i) {
-                if (res.data[i].status === "COMPLETED") {
-                    completed++;
-                } else pending++;
+        async function fetchJobs() {
+            await axios.get("http://127.0.0.1:5000/jobs").then(res => {
+                let data = res.data;
+                console.log("Jobs: ", data)
+                let numJobs = data.length, completed = 0, pending = 0;
+                for (let i = 0; i < numJobs; ++i) {
+                    (data[i].status === "COMPLETED") ? completed++ : pending++;
+                }
+                updateJobsData(data)
+                updateNumJobs(numJobs);
+                updateNumCompletedJobs(completed);
+                updateNumPendingJobs(pending);
             }
-
-            updateNumJobs(numJobs);
-            updateNumCompletedJobs(completed);
-            updateNumPendingJobs(pending);
-        })
+            ).catch(err => {
+                console.log("[Error] Error while fetching all jobs", err);
+            })
+        }
+        fetchJobs()
     }, [])
     return (
         <div>
             <Navbar />
-            <div className='container mt-5'>
-                <JobsHeader NumJobs={NumJobs} NumCompletedJobs={NumCompletedJobs} NumPendingJobs={NumPendingJobs} />
-            </div>
-            <div className="container mt-5">
-                <UploadJob />
-            </div>
-            <div className='container mt-5'>
-                <JobTable JobsData={JobsData} />
-            </div>
+            {
+                (JobsData && NumJobs && NumCompletedJobs && NumPendingJobs) ? <>
+                    <div className='container mt-5'>
+                        <JobsHeader NumJobs={NumJobs} NumCompletedJobs={NumCompletedJobs} NumPendingJobs={NumPendingJobs} />
+                    </div>
+                    <div className="container mt-5">
+                        <UploadJob />
+                    </div>
+                    <div className='container mt-5'>
+                        <JobTable JobsData={JobsData} />
+                    </div>
+                </> : <Spinner />
+            }
         </div>
     )
 }

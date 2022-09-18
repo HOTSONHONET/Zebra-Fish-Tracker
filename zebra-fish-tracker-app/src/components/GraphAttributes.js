@@ -2,18 +2,13 @@ import React, { useState } from 'react'
 import PathGraph from './PathGraph';
 import FishAttribute from './FishAttribute';
 
-const fishes = [
-    'fish 1',
-    'fish 2',
-    'fish 3',
-    'fish 4',
-    'fish 5',
-]
 
 const dimensions = ['2D', '3D'];
 
 export default function GraphAttributes(props) {
-    const [fish, setFish] = useState('fish_1');
+    let fishes = props.fishes, attributes = props.attributes;
+
+    const [fish, setFish] = useState('Fish_1');
     const [dimension, setDimension] = useState('2D');
     return (
         <div>
@@ -64,10 +59,10 @@ export default function GraphAttributes(props) {
                             </div>
                         </div>
                         <div className="col-6" height="500px">
-                            <PathGraph fish={fish} dimension={dimension} />
+                            <PathGraph fish={fish} dimension={dimension} attributes={attributes} />
                         </div>
                         <div className="col-4 mt-0">
-                            <FishAttribute fish={fish} />
+                            <FishAttribute fish={fish} attributes={attributes} />
                         </div>
                     </div>
                 </div>

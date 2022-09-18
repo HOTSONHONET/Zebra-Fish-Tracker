@@ -33,6 +33,7 @@ def getAllJobs():
     documents = db.find_all("Jobs", {})
     for document in documents:
         data.append(document)
+    data = data[::-1]
     return jsonify(data)
 
 
@@ -48,6 +49,12 @@ def getAllResults():
 @bp.route("/jobs/<string:job_id>", methods=["GET"])
 def getJobDetails(job_id):
     data = db.find_one("Jobs", {"job_id": job_id})
+    return jsonify(data)
+
+
+@bp.route("/results/<string:job_id>", methods=["GET"])
+def getJobResults(job_id):
+    data = db.find_one("Results", {"job_id": job_id})
     return jsonify(data)
 
 

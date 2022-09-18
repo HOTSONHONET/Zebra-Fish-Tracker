@@ -1,5 +1,0 @@
-__pycache__
-celery_worker.py
-requirements.txt
-services.py
-src

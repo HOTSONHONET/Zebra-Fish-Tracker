@@ -1,7 +1,9 @@
 import React from 'react'
-import video from "../dummyVideo/output.mp4"
+import video from "../dummyVideo/output.mp4";
+
 
 export default function VideoPlayer() {
+    let video_path = "../dummyVideo/output.mp4";
 
     return (
         <div>
