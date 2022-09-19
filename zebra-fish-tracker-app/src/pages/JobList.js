@@ -13,9 +13,11 @@ export default function JobList() {
     const [NumCompletedJobs, updateNumCompletedJobs] = useState(null);
     const [NumPendingJobs, updateNumPendingJobs] = useState(null);
     const [JobsData, updateJobsData] = useState([]);
+    let url = "http://127.0.0.1:5000/jobs";
     useEffect(() => {
         async function fetchJobs() {
-            await axios.get("http://127.0.0.1:5000/jobs").then(res => {
+
+            await axios.get(url).then(res => {
                 let data = res.data;
                 console.log("Jobs: ", data)
                 let numJobs = data.length, completed = 0, pending = 0;
@@ -32,7 +34,7 @@ export default function JobList() {
             })
         }
         fetchJobs()
-    }, [])
+    }, [url])
     return (
         <div>
             <Navbar />

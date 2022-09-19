@@ -34,7 +34,7 @@ export default function JobTable(props) {
                                         console.log("index: ", index)
                                         return <tr key={`th-${idx}`}>
                                             <th scope="row">{index + idx + 1}</th>
-                                            <td>{data.status ? <Link style={{ textDecoration: "none" }} to={`/jobs/${data.job_id}`}>{data.job_id}</Link> : data.job_id}</td>
+                                            <td>{data.status === "COMPLETED" ? <Link style={{ textDecoration: "none" }} to={`/jobs/${data.job_id}`}>{data.job_id}</Link> : data.job_id}</td>
                                             <td>{data.file_name}</td>
                                             <td>{data.submitted_date}</td>
                                             <td>{data.completion_date}</td>

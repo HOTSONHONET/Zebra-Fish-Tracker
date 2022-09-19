@@ -1,10 +1,12 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, send_from_directory
 from pprint import pprint
 
 from werkzeug.utils import secure_filename
 from src.utils.database import Database as db
 from src.utils.tasks import runPrediction
 from datetime import datetime
+from src.config import *
+import os
 
 
 # Creating a blueprint instance
@@ -88,5 +90,10 @@ def submitJob():
 
 
 @bp.route("/download/<string:job_id>")
-def downloadCSV():
-    pass
+def downloadCSV(job_id):
+    req_res = db.find_one("Results", {"job_id": job_id})
+    project_name = req_res["project_name"]
+    csv_path = f"{FRONTEND_PATH}/{project_name}/exp/tracks.csv"
+    pprint(req_res)
+
+    return send_from_directory(csv_path)

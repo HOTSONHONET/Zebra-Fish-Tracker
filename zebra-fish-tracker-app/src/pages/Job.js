@@ -14,6 +14,8 @@ export default function Job() {
     const [jobDetails, update_jobDetails] = useState(null);
     const [attributes, updateAttributes] = useState(null);
     const [fishes, updateFishes] = useState(null);
+    const [project_name, update_project_name] = useState(null);
+    const [images_names, update_images_names] = useState(null);
 
     useEffect(() => {
 
@@ -33,6 +35,8 @@ export default function Job() {
                 console.log("[INFO] Job Results: ", data);
                 updateAttributes(data.attributes);
                 updateFishes(Object.keys(data.attributes));
+                update_project_name(data.project_name);
+                update_images_names(data.images_names);
             }).catch(err => {
                 console.log("[ERROR] Error occurred while fetching job results: ", err)
             });
@@ -72,15 +76,16 @@ export default function Job() {
                     </div>
                     <div className='container-fluid mt-4'>
                         <div className="row">
-                            <div className="col-8" style={{ height: "400px" }}>
-                                <VideoPlayer />
+                            <div className="col-5">
+                                <VideoPlayer project_name={project_name} />
                             </div>
-                            <div className="col-4" style={{ height: "400px" }}>
-                                <FishIds />
+                            <div className="col-2"></div>
+                            <div className="col-5">
+                                <FishIds project_name={project_name} images_names={images_names} />
                             </div>
                         </div>
                     </div>
-                    <div className="container-fluid">
+                    <div className="container-fluid mt-2">
                         <GraphAttributes fishes={fishes} attributes={attributes} />
                     </div>
                 </> :
