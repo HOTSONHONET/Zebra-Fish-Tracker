@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify, send_from_directory
+from flask import Blueprint, request, jsonify, send_file
 from pprint import pprint
 
 from werkzeug.utils import secure_filename
@@ -7,6 +7,7 @@ from src.utils.tasks import runPrediction
 from datetime import datetime
 from src.config import *
 import os
+import pandas as pd
 
 
 # Creating a blueprint instance
@@ -45,6 +46,7 @@ def getAllResults():
     documents = db.find_all("Results", {})
     for document in documents:
         data.append(document)
+    data = data[::-1]
     return jsonify(data)
 
 
@@ -89,11 +91,18 @@ def submitJob():
     return "METHOD NOT ALLOWED"
 
 
+def createCSV(attributes_data, save_path):
+    df = pd.DataFrame(attributes_data)
+    df = df.T
+    df.to_csv(save_path)
+
+
 @bp.route("/download/<string:job_id>")
 def downloadCSV(job_id):
     req_res = db.find_one("Results", {"job_id": job_id})
     project_name = req_res["project_name"]
-    csv_path = f"{FRONTEND_PATH}/{project_name}/exp/tracks.csv"
+    csv_path = f"../{FRONTEND_PATH}/{project_name}/exp/tracks.csv"
+    createCSV(req_res, "src/Outputs/tracks.csv")
     pprint(req_res)
-
-    return send_from_directory(csv_path)
+    # print("files: ", os.listdir(csv_path))
+    return send_file(csv_path)

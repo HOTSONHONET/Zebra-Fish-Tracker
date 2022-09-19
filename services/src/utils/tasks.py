@@ -10,7 +10,6 @@ import os
 from src.config import *
 
 Database.initialize()
-FRONTEND_PATH = "../zebra-fish-tracker-app/src/Outputs"
 
 
 def get_WH(file_name):

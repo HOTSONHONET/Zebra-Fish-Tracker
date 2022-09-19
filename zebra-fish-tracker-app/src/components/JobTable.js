@@ -7,10 +7,10 @@ export default function JobTable(props) {
 
     let maxxIndex = Math.floor(props.JobsData.length / 10) * 10;
     let minnIndex = 0;
-
+    let baseURL = "http://127.0.0.1:5000/download/"
     return (
         <div>
-            <div className="card bg-light" style={{ width: "100%", height: `${props.JobsData.slice(index, index + 10).length === 10 ? "35rem" : `${14 + (props.JobsData.slice(index, index + 10).length) * 2}rem`}` }}>
+            <div className="card bg-light" style={{ width: "100%", height: `${props.JobsData.slice(index, index + 10).length === 10 ? "37rem" : `${14 + (props.JobsData.slice(index, index + 10).length) * 2}rem`}` }}>
                 <div className="card-title mt-4 text-center fw-bolder">
                     <h3>Jobs</h3>
                 </div>
@@ -39,7 +39,13 @@ export default function JobTable(props) {
                                             <td>{data.submitted_date}</td>
                                             <td>{data.completion_date}</td>
                                             <td>{data.status}</td>
-                                            <td>{data.status === "COMPLETED" ? "csv" : "-"}</td>
+                                            <td>{
+                                                data.status === "COMPLETED" ?
+                                                    <button type="button" className="btn btn-sm btn-success" >
+                                                        <a href={`${baseURL}${data.job_id}`} style={{ textDecoration: "none", color: "inherit" }}>CSV</a>
+                                                    </button> : "-"
+                                            }
+                                            </td>
                                         </tr>
                                     })
                                 }

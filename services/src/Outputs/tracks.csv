@@ -1,0 +1,6 @@
+,Fish_1,Fish_2
+job_id,7b793a7d-dc2a-4a10-b0e1-f613842fc014,7b793a7d-dc2a-4a10-b0e1-f613842fc014
+id,test.gif-19-09-2022 16:29,test.gif-19-09-2022 16:29
+attributes,"{'x': [268, 268, 268], 'y': [102, 102, 102], 'total_distance': 0.0, 'average_speed': 0.0, 'maximum_speed': 0, 'total_stationary_time': 0, 'total_mobile_time': 0, 'no_of_freezing_episodes': 0, 'total_time_in_upperHalf': 0.12, 'total_time_in_lowerHalf': 0.0}","{'x': [187, 187, 187], 'y': [102, 102, 102], 'total_distance': 0.0, 'average_speed': 0.0, 'maximum_speed': 0, 'total_stationary_time': 0, 'total_mobile_time': 0, 'no_of_freezing_episodes': 0, 'total_time_in_upperHalf': 0.12, 'total_time_in_lowerHalf': 0.0}"
+project_name,test_19-09-2022-16-29-42,test_19-09-2022-16-29-42
+images_names,['test.jpg'],['test.jpg']
