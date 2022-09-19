@@ -10,7 +10,6 @@ import VideoPlayer from '../components/VideoPlayer'
 
 export default function Job() {
     const job_id = window.location.href.split("/").pop();
-
     const [jobDetails, update_jobDetails] = useState(null);
     const [attributes, updateAttributes] = useState(null);
     const [fishes, updateFishes] = useState(null);
@@ -86,7 +85,7 @@ export default function Job() {
                         </div>
                     </div>
                     <div className="container-fluid mt-2">
-                        <GraphAttributes fishes={fishes} attributes={attributes} />
+                        <GraphAttributes fishes={fishes} attributes={attributes} job_id={job_id} />
                     </div>
                 </> :
                     <Spinner />

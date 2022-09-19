@@ -10,14 +10,21 @@ export default function FishAttribute(props) {
         "Total time mobile(s)": attributes[fish]["total_mobile_time"],
         "Total time stationary(s)": attributes[fish]["total_stationary_time"],
         "Number of freezing episodes": attributes[fish]["no_of_freezing_episodes"],
-        "Total time in the upper zone(upper half of tank)": attributes[fish]["total_time_in_upperHalf"],
-        "Total time in the lower zone(lower half of tank)": attributes[fish]["total_time_in_lowerHalf"]
+        "Total time in the upper zone(s)": attributes[fish]["total_time_in_upperHalf"],
+        "Total time in the lower zone(s)": attributes[fish]["total_time_in_lowerHalf"]
     }
+    let url = `http://127.0.0.1:5000/download/${props.job_id}`
     return (
         <div>
             <div className="card mb-3 mt-0" style={{ width: "100%", height: "450px" }}>
-                <div className="card-title p-2 text-center">
+                <div className="card-title p-2">
                     <h3>Attributes</h3>
+                    < button type="button" className="btn btn-sm btn-success" >
+                        <a href={url} style={{ textDecoration: "none", color: "inherit" }}>
+                            Download
+                        </a>
+                    </button>
+
                 </div>
                 <div className="card-body text-center">
                     <table className="table table-sm table-bordered table-hover table-secondary vw-10">

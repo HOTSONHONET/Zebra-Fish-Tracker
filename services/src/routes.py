@@ -65,9 +65,10 @@ def getJobResults(job_id):
 @bp.route("/upload", methods=["POST"])
 def submitJob():
     if request.method == 'POST':
+        print("request.form: ", request.form)
+        print("request.files: ", request.files)
         file = request.files['file']
         file_name = secure_filename(file.filename)
-        file.save(f"src/UserInputs/{file_name}")
 
         # Saving the job to db
         present_time = datetime.now().strftime("%d-%m-%Y %H:%M")
@@ -79,15 +80,22 @@ def submitJob():
             "status": "PENDING",
             "completion_date": "-",
         }
+
+        # By doing this we will avoid overwritting issue if two file have the same name
+        time = datetime.now().strftime("%d-%m-%Y-%H-%M-%S")
+        extension = file_name.split(".")[-1]
+        input_name = "".join(file_name.split(
+            ".")[:-1]) + "_" + time + f".{extension}"
+        file.save(f"src/UserInputs/{input_name}")
         # Pushing task to celery
-        job = runPrediction.delay(file_name, vid_id)
+        job = runPrediction.delay(input_name, vid_id)
         job_id = job.id
 
         job_details["job_id"] = job_id
 
         # Inserting the job_id
         db.insert("Jobs", job_details)
-        return "SUCCESSFULLY SUBMITTED JOB"
+        return f"SUCCESSFULLY SUBMITTED JOB, job_id: {job_id}"
     return "METHOD NOT ALLOWED"
 
 

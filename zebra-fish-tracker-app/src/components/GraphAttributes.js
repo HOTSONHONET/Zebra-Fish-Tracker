@@ -62,7 +62,7 @@ export default function GraphAttributes(props) {
                             <PathGraph fish={fish} dimension={dimension} attributes={attributes} />
                         </div>
                         <div className="col-4 mt-0">
-                            <FishAttribute fish={fish} attributes={attributes} />
+                            <FishAttribute fish={fish} attributes={attributes} job_id={props.job_id} />
                         </div>
                     </div>
                 </div>
