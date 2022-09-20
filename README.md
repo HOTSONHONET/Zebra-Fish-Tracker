@@ -1,4 +1,4 @@
-# Zebra-Fish-Tracker
+# ShatZ
 
 ## Overview 📃
 
