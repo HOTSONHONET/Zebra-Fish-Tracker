@@ -60,7 +60,7 @@ export default function JobTable(props) {
             </div>
             <div className="container mt-4 mb-4 d-flex justify-content-center">
                 <button type="button" className="btn btn-primary mx-1" disabled={index === minnIndex} onClick={() => { updateIndex(Math.max(minnIndex, index - 10)) }}>Previous</button>
-                <button type="button" className="btn btn-primary mx-1" disabled={index === maxxIndex || index + 10 === maxxIndex} onClick={() => { updateIndex(Math.min(index + 10, maxxIndex)) }}>Next</button>
+                <button type="button" className="btn btn-primary mx-1" disabled={index === maxxIndex} onClick={() => { updateIndex(Math.min(index + 10, maxxIndex)) }}>Next</button>
             </div>
         </div >
     )

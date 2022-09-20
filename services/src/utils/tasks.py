@@ -58,7 +58,9 @@ def runPrediction(file_name: str, vid_id: str):
 
     # Pushing the result into the database
     update_query = {"id": vid_id}
-    updated_values = {"status": "COMPLETED", "completion_date": present_time}
+
+    current_time = datetime.now().strftime("%d-%m-%Y %H:%M")
+    updated_values = {"status": "COMPLETED", "completion_date": current_time}
 
     job_id = Database.find_one("Jobs", update_query)["job_id"]
 
