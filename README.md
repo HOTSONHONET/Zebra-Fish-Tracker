@@ -9,7 +9,7 @@
 - [User Flow diagram 👨🏼‍💻](#user-flow-diagram)
 - [Application architecture 🚜](#application-architecture)
 - [Sample Images 📷](#sample-images)
-
+- [Sample Video 🎥](#sample-video)
 
 <!-- /TOC -->
 
@@ -48,3 +48,25 @@
 <h2 id="user-flow-diagram">User Flow diagram 👨🏼‍💻</h2>
 <h2 id="application-architecture">Application architecture 🚜</h2>
 <h2 id="sample-images">Sample Images 📷</h2>
+
+<table>
+  <tr>
+    <th>Home Page</th>
+    <th>Model Page</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/56304060/191432733-4090bad4-456e-4bfc-b968-b9b70b126143.png" alt="..." /></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/191432708-2a15a249-72e5-4380-906c-9cb7c274b086.png" alt="..." /></td>
+  </tr>
+  <tr>
+    <th>Jobs Page</th>
+    <th>Job Page</th>
+  </tr>
+  <tr>
+    <td><img src="https://user-images.githubusercontent.com/56304060/191432699-97499b0a-4e2c-4547-8ff6-65d59fec5759.png" alt="..." /></td>
+    <td><img src="https://user-images.githubusercontent.com/56304060/191432691-166f75a4-c8b2-470a-ac60-a2755a5ab8f7.png" alt="..." /></td>
+  </tr>
+</table>
+
+<h2 id="sample-video">Sample Video 🎥</h2>
+
