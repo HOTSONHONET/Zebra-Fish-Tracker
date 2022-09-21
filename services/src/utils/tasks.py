@@ -85,3 +85,6 @@ def runPrediction(file_name: str, vid_id: str):
 
     Database.update_one("Jobs", update_query, updated_values)
     Database.insert("Results", data)
+
+    # Removing the inputted video file
+    os.system(f"rm ./src/UserInputs/{file_name}")
