@@ -43,7 +43,7 @@
 - Now, run the *flask server* using this command `python3 services.py` and in another terminal run the celery service using this command `celery -A celery_worker.celery worker --loglevel=debug`
 - Your backend service is running, now you need to start the *react-app*
 - Go the *zebra-fish-tracker* directory, open a terminal and run this command `npm start`, this will start the react application
-- Now you use this application for you needs
+- Now you can use this application as per your needs
 
 <h2 id="user-flow-diagram">User Flow diagram 👨🏼‍💻</h2>
 <h2 id="application-architecture">Application architecture 🚜</h2>
