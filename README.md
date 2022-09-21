@@ -69,4 +69,5 @@
 </table>
 
 <h2 id="sample-video">Sample Video 🎥</h2>
+<img src="https://user-images.githubusercontent.com/56304060/191437054-b48f363f-1e0d-453a-8364-df984673a080.gif" alt="..." />
 
