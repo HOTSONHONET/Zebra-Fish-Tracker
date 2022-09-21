@@ -27,11 +27,24 @@
   - Make sure you have [git](https://git-scm.com/downloads) installed on your system. If you are a windows user, you need to need install [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) in your system, because the application uses [Celery v4+](https://docs.celeryq.dev/en/stable/getting-started/introduction.html) which has support for Linux environment only
   - Once you done with all above requirements, you need to install [docker](https://www.docker.com) in your WSL enovironment. Docker will help in setting up [MongoDB](https://www.mongodb.com/try/download/community) database in your system 
   - Clone the repository using the below command </br> `git clone https://github.com/HOTSONHONET/Zebra-Fish-Tracker.git`
-  -  
+  - Go to the **zebra-fish-tracker** directory using `cd zebra-fish-tracker` and then run this command `npm i`, this will install the packages mentioned in your *package.json* file
+  - Now, go inside the **services** directory, open up a **Linux shell or terminal** and set up a virtual environment using this command `python3 -m virtualenv venv`. If you have not installed virtualenv module, then you will get a package not found error so make sure you have installed this module before running the above command.
+  - Once, your *venv* is created, activate the virtual environment using this command `<path-to-your-venv-directory>/bin/activate` and then install all the modules listed in requirements.txt file using this command `pip install -r requirements.txt`
+  - Now, the app is ready to use, check out [How to use it 🤔?](#how-to-use-it) section to know how to run the application
 
 
 
 <h2 id="how-to-use-it">How to use it 🤔?</h2>
+
+- Once you have done with all the steps mentioned in [Installation guide 🦮](#installatin-guide) you are good to go.
+- Open up 2 linux terminals from the *services* directory, one will be used for running the flask app and another for running the celery service
+- Use this command to run mongodb container `docker run -d -p 27017:27017 –name=mongo-container mongo:latest`. This is a one-time installation command, you need to run it only once, after that you can always start the container using this command `docker start mongo-container`
+- Use this command to run the redis container `docker run -d -p 6379:6379 -name=redis-container redis:latest`. This is also a one-time installation command, after that you can always start the container using this command `docker start redis-container`
+- Now, run the *flask server* using this command `python3 services.py` and in another terminal run the celery service using this command `celery -A celery_worker.celery worker --loglevel=debug`
+- Your backend service is running, now you need to start the *react-app*
+- Go the *zebra-fish-tracker* directory, open a terminal and run this command `npm start`, this will start the react application
+- Now you use this application for you needs
+
 <h2 id="user-flow-diagram">User Flow diagram 👨🏼‍💻</h2>
 <h2 id="application-architecture">Application architecture 🚜</h2>
 <h2 id="sample-images">Sample Images 📷</h2>
