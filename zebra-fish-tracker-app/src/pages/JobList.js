@@ -12,7 +12,7 @@ export default function JobList() {
     const [NumJobs, updateNumJobs] = useState(null);
     const [NumCompletedJobs, updateNumCompletedJobs] = useState(null);
     const [NumPendingJobs, updateNumPendingJobs] = useState(null);
-    const [JobsData, updateJobsData] = useState([]);
+    const [JobsData, updateJobsData] = useState(null);
     let url = "http://127.0.0.1:5000/jobs";
     useEffect(() => {
         async function fetchJobs() {
@@ -39,7 +39,7 @@ export default function JobList() {
         <div>
             <Navbar />
             {
-                (JobsData && NumJobs && NumCompletedJobs && NumPendingJobs) ? <>
+                (JobsData !== null && NumJobs !== null && NumCompletedJobs !== null && NumPendingJobs !== null) ? <>
                     <div className='container mt-5'>
                         <JobsHeader NumJobs={NumJobs} NumCompletedJobs={NumCompletedJobs} NumPendingJobs={NumPendingJobs} />
                     </div>

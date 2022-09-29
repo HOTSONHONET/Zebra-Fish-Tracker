@@ -43,7 +43,7 @@ def runPrediction(file_name: str, vid_id: str):
     width, height = get_WH(f"src/UserInputs/{file_name}")
 
     # Commands to be executed
-    yolo_cmd = f"cd ./src/Yolov5_DeepSort_Pytorch; python3 track.py --source ../UserInputs/{file_name} --yolo-weights weights/best.pt --save-txt --save-crop --save-vid --max-det 5 --augment --agnostic-nms --project ../../{FRONTEND_PATH}/{project_name} --exist-ok"
+    yolo_cmd = f"cd ./src/Yolov5_DeepSort_Pytorch; python3 track.py --device cpu --source ../UserInputs/{file_name} --yolo-weights weights/best.pt --save-txt --save-crop --save-vid --max-det 5 --augment --agnostic-nms --project ../../{FRONTEND_PATH}/{project_name} --exist-ok"
     ffmpeg_cmd = f"ffmpeg -i {FRONTEND_PATH}/{project_name}/exp/{video_name}.mp4 -vcodec libx264 -f mp4 {FRONTEND_PATH}/{project_name}/exp/output.mp4"
 
     # Running Yolo tracker on the video
