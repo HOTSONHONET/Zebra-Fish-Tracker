@@ -29,7 +29,7 @@
   - Clone the repository using the below command </br> `git clone https://github.com/HOTSONHONET/Zebra-Fish-Tracker.git`
   - Go to the **zebra-fish-tracker** directory using `cd zebra-fish-tracker` and then run this command `npm i`, this will install the packages mentioned in your *package.json* file
   - Now, go inside the **services** directory, open up a **Linux shell or terminal** and set up a virtual environment using this command `python3 -m virtualenv venv`. If you have not installed virtualenv module, then you will get a package not found error so make sure you have installed this module before running the above command.
-  - Once, your *venv* is created, activate the virtual environment using this command `<path-to-your-venv-directory>/bin/activate` and then install all the modules listed in requirements.txt file using this command `pip install -r requirements.txt`
+  - Once, your *venv* is created, activate the virtual environment using this command `source <path-to-your-venv-directory>/bin/activate` and then install all the modules listed in requirements.txt file using this command `pip install -r requirements.txt`
   - Last thing you need to do is initiliaze all the git submodules and install `ffmpeg` in your WSL environment.
   - Go to `services/src/Yolov5_DeepSort_Pytorch` using `cd` and run the following command `git submodule update --init` and then go inside `services/src/Yolov5_DeepSort_Pytorch/yolov5` and the same command `git submodule update --init`
   - Now install `ffmpeg` using the following command `sudo apt update; sudo apt install ffmpeg`
