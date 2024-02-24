@@ -41,8 +41,8 @@
 
 - Once you have done with all the steps mentioned in [Installation guide 🦮](#installatin-guide) you are good to go.
 - Open up 2 linux terminals from the *services* directory, one will be used for running the flask app and another for running the celery service
-- Use this command to run mongodb container `docker run -d -p 27017:27017 –name=mongo-container mongo:latest`. This is a one-time installation command, you need to run it only once, after that you can always start the container using this command `docker start mongo-container`
-- Use this command to run the redis container `docker run -d -p 6379:6379 -name=redis-container redis:latest`. This is also a one-time installation command, after that you can always start the container using this command `docker start redis-container`
+- Use this command to run mongodb container `docker run -d -p 27017:27017 -–name=mongo-container mongo:latest`. This is a one-time installation command, you need to run it only once, after that you can always start the container using this command `docker start mongo-container`
+- Use this command to run the redis container `docker run -d -p 6379:6379 --name=redis-container redis:latest`. This is also a one-time installation command, after that you can always start the container using this command `docker start redis-container`
 - Now, run the *flask server* using this command `python3 services.py` and in another terminal run the celery service using this command `celery -A celery_worker.celery worker --loglevel=debug`
 - Your backend service is running, now you need to start the *react-app*
 - Go the *zebra-fish-tracker* directory, open a terminal and run this command `npm start`, this will start the react application
